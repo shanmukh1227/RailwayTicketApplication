@@ -50,7 +50,7 @@ def Register_customer(request):
         f = request.POST['fname']
         l = request.POST['lname']
         e = request.POST['email']
-        a = request.POST['add']
+        a = request.POST['address']
         m = request.POST['mobile']
         g = request.POST['male']
         d = request.POST['birth']
@@ -135,7 +135,7 @@ def Book_detail(request,coun,pid,route1):
     data2 = Add_Train.objects.get(id=pid)
     user2 = User.objects.filter(username=request.user.username).get()
     user1 = Register.objects.filter(user=user2).get()
-    pro = Passenger.objects.filter(user=user1)
+    pro = Passenger.objects.filter(user=user2)
     book = Book_ticket.objects.filter(user=user1)
     total = 0
     for i in pro:
